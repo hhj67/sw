@@ -83,9 +83,13 @@ Emojis.Categories = {
 }
 
 Emojis.List = {}
-for _, category in next, Emojis.Categories do
-    for _, emoji in next, category do
-        table.insert(Emojis.List, emoji)
+
+for _, categoryName in ipairs({"Faces", "Hands", "Hearts", "Animals", "Food", "Objects", "World", "Misc"}) do
+    local category = Emojis.Categories[categoryName]
+    if category then
+        for _, emoji in ipairs(category) do
+            table.insert(Emojis.List, emoji)
+        end
     end
 end
 
